@@ -1,16 +1,23 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('e-usluge', 'HomeController@services')->name('services');
+Route::get('pomoc', 'HomeController@help')->name('help');
+Route::get('kontakt', 'HomeController@contact')->name('contact');
+
+Route::post('search', 'HomeController@search')->name('search');
+
+Route::get('auth', 'AuthController@index');
+Route::post('auth', 'AuthController@login')->name('login');
+Route::get('logout', 'AuthController@logout')->name('logout');
+
+Route::group(['prefix' => '/dashboard', 'middleware' => ['auth']], function () {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('ko-sam-ja', 'DashboardController@whoIam')->name('whoIam');
+    Route::get('profil', 'DashboardController@profile')->name('profile');
+    Route::post('profil', 'DashboardController@updateProfile')->name('profile');
+    Route::get('obavestenja', 'DashboardController@notifications')->name('notification');
+    Route::get('vesti', 'DashboardController@news')->name('news');
+    Route::get('kalendar', 'DashboardController@calendar')->name('calendar');
 });
