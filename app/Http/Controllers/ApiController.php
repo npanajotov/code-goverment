@@ -29,6 +29,7 @@ class ApiController extends Controller
         $address->place = $request->place;
         $address->city = $request->city;
         $address->created_at = date('Y-m-d');
+        $address->save();
 
         return response()->json(['message' => 'Uspesno izmenjena obavestenja!', 200]);
     }

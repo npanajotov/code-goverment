@@ -47692,6 +47692,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['is_requested', 'user_id'],
@@ -47709,6 +47711,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         send: function send() {
             var _this = this;
+
+            var data = {
+                user_id: this.user_id,
+                street: this.street,
+                num: this.addressNumber,
+                place: this.state,
+                city: this.city
+            };
 
             this.axios.post('/api/request-address', data).then(function () {
                 _this.success = true;
@@ -47728,9 +47738,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm.is_requested
-      ? _c("div", {})
+      ? _c("div", { staticClass: "alert alert-info" }, [
+          _c("h4", { staticClass: "alert-heading" }, [
+            _vm._v("Zahtev je i dalje u obradi")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-0" }, [
+            _vm._v(
+              "Uputili ste zahtev za promenu adresu. U najskorijem roku ćete biti obavešteni o\n            daljim koracima."
+            )
+          ])
+        ])
       : _c("div", [
-          _vm.success
+          _vm.isSend
             ? _c(
                 "div",
                 {
@@ -47749,181 +47769,179 @@ var render = function() {
                   ])
                 ]
               )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("form", { attrs: { action: "" } }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-2 col-form-label",
-                  attrs: { for: "Ulica" }
-                },
-                [_vm._v("Ulica:")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-10" }, [
-                _c("input", {
-                  directives: [
+            : _c("div", [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.street,
-                      expression: "street"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "Ulica",
-                    id: "Ulica",
-                    placeholder: "Unesite ulicu"
-                  },
-                  domProps: { value: _vm.street },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "Ulica" }
+                    },
+                    [_vm._v("Ulica:")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.street,
+                          expression: "street"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "Ulica",
+                        id: "Ulica",
+                        placeholder: "Unesite ulicu"
+                      },
+                      domProps: { value: _vm.street },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.street = $event.target.value
+                        }
                       }
-                      _vm.street = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-2 col-form-label",
-                  attrs: { for: "Ulica" }
-                },
-                [_vm._v("Broj:")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-10" }, [
-                _c("input", {
-                  directives: [
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.addressNumber,
-                      expression: "addressNumber"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "Broj",
-                    id: "Broj",
-                    placeholder: "Unesite broj"
-                  },
-                  domProps: { value: _vm.addressNumber },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "Ulica" }
+                    },
+                    [_vm._v("Broj:")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.addressNumber,
+                          expression: "addressNumber"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "Broj",
+                        id: "Broj",
+                        placeholder: "Unesite broj"
+                      },
+                      domProps: { value: _vm.addressNumber },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.addressNumber = $event.target.value
+                        }
                       }
-                      _vm.addressNumber = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-2 col-form-label",
-                  attrs: { for: "Opstina" }
-                },
-                [_vm._v("Opstina:")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-10" }, [
-                _c("input", {
-                  directives: [
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.state,
-                      expression: "state"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "Opstina",
-                    id: "Opstina",
-                    placeholder: "Unesite opstinu"
-                  },
-                  domProps: { value: _vm.state },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "Opstina" }
+                    },
+                    [_vm._v("Opstina:")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.state,
+                          expression: "state"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "Opstina",
+                        id: "Opstina",
+                        placeholder: "Unesite opstinu"
+                      },
+                      domProps: { value: _vm.state },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.state = $event.target.value
+                        }
                       }
-                      _vm.state = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-2 col-form-label",
-                  attrs: { for: "Mesto" }
-                },
-                [_vm._v("Mesto:")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-10" }, [
-                _c("input", {
-                  directives: [
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.city,
-                      expression: "city"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "Mesto",
-                    id: "Mesto",
-                    placeholder: "Unesite mesto"
-                  },
-                  domProps: { value: _vm.city },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "Mesto" }
+                    },
+                    [_vm._v("Mesto:")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.city,
+                          expression: "city"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "Mesto",
+                        id: "Mesto",
+                        placeholder: "Unesite mesto"
+                      },
+                      domProps: { value: _vm.city },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.city = $event.target.value
+                        }
                       }
-                      _vm.city = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [
-                _vm._v(
-                  "\n                Uputite zahtev za promenu prebivališta\n            "
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", on: { click: _vm.send } },
+                  [
+                    _vm._v(
+                      "\n                Uputite zahtev za promenu prebivališta\n            "
+                    )
+                  ]
                 )
-              ]
-            )
-          ])
+              ])
         ])
   ])
 }

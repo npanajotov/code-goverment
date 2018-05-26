@@ -1,15 +1,17 @@
 <template>
     <div>
-        <div v-if="is_requested" class="">
-
+        <div v-if="is_requested" class="alert alert-info">
+            <h4 class="alert-heading">Zahtev je i dalje u obradi</h4>
+            <p class="mb-0">Uputili ste zahtev za promenu adresu. U najskorijem roku ćete biti obavešteni o
+                daljim koracima.</p>
         </div>
         <div v-else>
-            <div v-if="success" class="alert alert-success" role="alert">
+            <div v-if="isSend" class="alert alert-success" role="alert">
                 <h4 class="alert-heading">Uspešno poslat zahtev!</h4>
                 <p class="mb-0">Uspešno ste uputili zahtev za promenu adresu. U najskorijem roku ćete biti obavešteni o
                     daljim koracima.</p>
             </div>
-            <form action="">
+            <div v-else>
                 <p><strong>Novo prebivalište:</strong></p>
                 <div class="form-group row">
                     <label for="Ulica" class="col-sm-2 col-form-label">Ulica:</label>
@@ -39,10 +41,10 @@
                                placeholder="Unesite mesto">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button class="btn btn-primary" @click="send">
                     Uputite zahtev za promenu prebivališta
                 </button>
-            </form>
+            </div>
         </div>
     </div>
 </template>
@@ -60,6 +62,15 @@
         }),
         methods: {
             send() {
+                let data = {
+                    user_id: this.user_id,
+                    street: this.street,
+                    num: this.addressNumber,
+                    place: this.state,
+                    city: this.city,
+                };
+
+
                 this.axios.post('/api/request-address', data).then(() => {
                     this.success = true;
                     this.isSend = true;

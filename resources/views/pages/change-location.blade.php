@@ -32,7 +32,7 @@
                     @endphp
 
                     <div class="card-body text-secondary">
-                        <div class="pl-3 pb-3">
+                        <div class="pl-3 pb-3 pr-3">
                             <p>
                                 <strong>Trenutno prebivalište:</strong><br>
                                 {{$address->Ulica}} {{$address->Broj}}, {{$address->Opstina}}, {{$address->Mesto}}.
