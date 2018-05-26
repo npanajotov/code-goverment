@@ -2,10 +2,10 @@
     <div class="card-header">Navigacija</div>
     <div class="card-body text-secondary">
         <div class="nav flex-column nav-pills">
-            {{--<a class="nav-link {{url()->current() == route('dashboard') ? 'active' : ''}}"--}}
-            {{--href="{{route('dashboard')}}">--}}
-            {{--eUprava--}}
-            {{--</a>--}}
+            <a class="nav-link {{url()->current() == route('dashboard') ? 'active' : ''}}"
+            href="{{route('dashboard')}}">
+            eUprava
+            </a>
             <a class="nav-link {{url()->current()  == route('whoIam') ? 'active' : ''}}" href="{{route('whoIam')}}">
                 Ko sam ja?
             </a>

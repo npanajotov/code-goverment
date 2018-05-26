@@ -1,0 +1,18 @@
+{
+    "username": "%BROWSERSTACK_USERNAME%",
+    "key": "%BROWSERSTACK_KEY%",
+    "test_framework": "qunit",
+    "test_path": [
+        "test/qunit.html"
+    ],
+    "timeout": 180,
+    "browsers": [
+        "chrome_latest",
+        "firefox_latest",
+        "safari_latest",
+        "ie_9",
+        "ie_10",
+        "ie_11"
+    ],
+    "exit_with_fail": true
+}

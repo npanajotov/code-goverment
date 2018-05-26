@@ -19,7 +19,7 @@ class AuthController extends Controller
         $user = User::where('KorisnickoIme', $request->username)->first();
         if ($user) {
             if (Auth::attempt(['KorisnickoIme' => $request->username, 'password' => $request->password], true)) {
-                return redirect()->route('whoIam');
+                return redirect()->route('dashboard');
             }
 
             return back()->withErrors('Pogresna lozinka, pokusajte ponovo.')->withInput();

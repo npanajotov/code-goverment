@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Local\RequestAddress;
 use App\Models\Local\Subscribe;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -32,5 +33,18 @@ class ApiController extends Controller
         $address->save();
 
         return response()->json(['message' => 'Uspesno izmenjena obavestenja!', 200]);
+    }
+
+    public function userById($id)
+    {
+        $user = User::where('id', $id)->with('requestAddress', 'subscribed', 'marriageBook', 'address', 'driverLicence', 'passport', 'employment', 'birthBook', 'identityCard')->first();
+        return response()->json(['user' => $user], 200);
+    }
+
+    public function auth(Request $request)
+    {
+        $user = User::where('KorisnickoIme', $request->username)->with('requestAddress', 'subscribed', 'marriageBook', 'address', 'driverLicence', 'passport', 'employment', 'birthBook', 'identityCard')->first();
+        return response()->json(['user' => $user], 200);
+
     }
 }

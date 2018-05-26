@@ -26,10 +26,15 @@
                     <a class="nav-link" href="{{route('contact')}}">Kontakt</a>
                 </li>
             </ul>
+            <div class="lang">
+                <div id="cirilica">Ћир</div>
+                <div id="latinica">Lat</div>
+            </div>
             <div class="form-inline" id="search-btn">
                 <button class="btn btn-outline-light"><i class="fa fa-search"></i></button>
             </div>
         </div>
+
     </div>
 
 </nav>

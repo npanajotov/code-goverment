@@ -28,11 +28,25 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="{{mix('/js/app.js')}}"></script>
+<script src="/js/cyrlatconverter.min.js"></script>
 
 <script>
     $('#search-btn').on('click', function (e) {
         $('.search-box-container').toggle();
     })
+    let CyrLat = new CyrLatConverter('body').init({
+        onClickCyr: '#cirilica',
+        onClickLat: '#latinica',
+        cookieDuration: 9999,
+    });
+
+    $('#cirilica').click(function () {
+        CyrLat.L2C();
+    });
+
+    $('#latinica').click(function () {
+        CyrLat.C2L();
+    });
 </script>
 </body>
 </html>

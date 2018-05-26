@@ -53,3 +53,12 @@
     background: $primary-red !important;
 
 }
+
+.lang {
+    color: white;
+    div {
+        float: left;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+}

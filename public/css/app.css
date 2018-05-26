@@ -56,3 +56,13 @@
   background: #B84242 !important;
 }
 
+.lang {
+  color: white;
+}
+
+.lang div {
+  float: left;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
