@@ -34,4 +34,9 @@ class DashboardController extends Controller
     {
         return view('pages.notification');
     }
+
+    public function changeLocation()
+    {
+        return view('pages.change-location');
+    }
 }

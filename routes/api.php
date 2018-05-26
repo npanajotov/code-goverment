@@ -13,4 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('news', 'ApiController@index');
+Route::post('change-notification', 'ApiController@changeNotification');
+Route::post('request-address', 'ApiController@requestAddress');

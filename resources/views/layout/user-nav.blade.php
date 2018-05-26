@@ -19,9 +19,12 @@
             <a class="nav-link {{url()->current()  == route('news') ? 'active' : ''}}" href="{{route('news')}}">
                 Vesti
             </a>
-            <a class="nav-link {{url()->current()  == route('calendar') ? 'active' : ''}}" href="{{route('calendar')}}">
-                Kalendar
+            <a class="nav-link {{url()->current()  == route('change-location') ? 'active' : ''}}" href="{{route('change-location')}}">
+                eForma
             </a>
+            {{--<a class="nav-link {{url()->current()  == route('calendar') ? 'active' : ''}}" href="{{route('calendar')}}">--}}
+                {{--Kalendar--}}
+            {{--</a>--}}
             <a class="nav-link" href="{{route('logout')}}">Odjava</a>
         </div>
     </div>

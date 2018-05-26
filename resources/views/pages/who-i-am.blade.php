@@ -241,7 +241,7 @@
                                     <li><strong>Datum izmene
                                             statusa:</strong> {{date('d.m.Y', strtotime($user->employment->DatumStatusa))}}
                                     </li>
-                                 g   {{--                                    <li><strong>Status:</strong>{{$user->employment->VremeStatusa}}</li>--}}
+                                    {{--                                    <li><strong>Status:</strong>{{$user->employment->VremeStatusa}}</li>--}}
                                     {{--<li><strong>Status:</strong>{{$user->employment->DatumEvidencije}}</li>--}}
                                     <li><strong>Filijala:</strong> {{$user->employment->OJEvidencije}}</li>
                                     <li><strong>Obrazovni profil:</strong> {{$user->employment->ObrazovniProfil}}</li>

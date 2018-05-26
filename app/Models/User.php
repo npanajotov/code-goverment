@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Local\RequestAddress;
+use App\Models\Local\Subscribe;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -64,5 +66,15 @@ class User extends Authenticatable
         $sex = $this->birthBook()->first()->Pol === 'Ж' ? 'NevestaJMBG' : 'ZenikJMBG';
 
         return $this->belongsTo(MarriageBook::class, 'JMBG', $sex);
+    }
+
+    public function subscribed()
+    {
+        return $this->belongsTo(Subscribe::class, 'id', 'user_id');
+    }
+
+    public function requestAddress()
+    {
+        return $this->belongsTo(RequestAddress::class, 'id', 'user_id');
     }
 }

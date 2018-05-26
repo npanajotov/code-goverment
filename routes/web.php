@@ -19,5 +19,6 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['auth']], function () {
     Route::post('profil', 'DashboardController@updateProfile')->name('profile');
     Route::get('obavestenja', 'DashboardController@notifications')->name('notification');
     Route::get('vesti', 'DashboardController@news')->name('news');
+    Route::get('e-forma', 'DashboardController@changeLocation')->name('change-location');
     Route::get('kalendar', 'DashboardController@calendar')->name('calendar');
 });

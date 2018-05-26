@@ -22,7 +22,7 @@
 }
 
 .search-box {
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.4);
     padding: 10px;
     float: right;
     -webkit-border-bottom-right-radius: 5px;
@@ -31,4 +31,25 @@
     -moz-border-radius-bottomleft: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+.btn-none {
+    display: block;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    outline: 0;
+    border: 0;
+    &:hover, &:active, &:focus {
+        outline: 0;
+    }
+}
+
+.bg-primary {
+    background: $primary-blue !important;
+}
+
+.bg-danger {
+    background: $primary-red !important;
+
 }
