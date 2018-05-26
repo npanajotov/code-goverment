@@ -202,12 +202,17 @@
                                 <ul class="list-unstyled">
                                     <li>
                                         <strong>Opština:</strong> {{$user->marriageBook->Opstina}}
-                                        <strong>Matično područje:</strong> {{$user->marriageBook->MaticnoPodrucje}}
-                                        <strong>Tekući broj:</strong> {{$user->marriageBook->TekuciBroj}}
-                                        <strong>Godina upisa:</strong> {{$user->marriageBook->GodUpisa}}
-                                        <strong>Mesto zaključenje
+                                    </li>
+                                    <li><strong>Matično područje:</strong> {{$user->marriageBook->MaticnoPodrucje}}
+                                    </li>
+                                    <li><strong>Tekući broj:</strong> {{$user->marriageBook->TekuciBroj}}
+                                    </li>
+                                    <li><strong>Godina upisa:</strong> {{$user->marriageBook->GodUpisa}}
+                                    </li>
+                                    <li><strong>Mesto zaključenje
                                             braka:</strong> {{$user->marriageBook->MestoZakljucenjaBraka}}
-                                        <strong>Datum zaključenja
+                                    </li>
+                                    <li><strong>Datum zaključenja
                                             braka:</strong> {{date('d.m.Y', strtotime($user->marriageBook->DatZakljucenjaBraka))}}
                                     </li>
                                 </ul>
@@ -248,7 +253,7 @@
                                     <li><strong>Prima novčanu
                                             naknadu:</strong> {{$user->employment->NovcanaNaknada ? 'Da' : 'Ne'}}</li>
                                     <li><strong>Iznos novčane
-                                            naknade:</strong> {{$user->employment->IznosNovcaneNaknade}}</li>
+                                            naknade:</strong> {{$user->employment->IznosNovcaneNaknade ? : '/'}}</li>
                                 </ul>
                             </div>
                         </div>
