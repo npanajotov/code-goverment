@@ -20,6 +20,7 @@ Vue.use(VueAxios, axios);
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
 Vue.component('newaddress', require('./components/NewAddress.vue'));
+Vue.component('service-notification', require('./components/ServiceNotifcation.vue'));
 
 const app = new Vue({
     el: '#app'

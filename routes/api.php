@@ -14,6 +14,10 @@ use Illuminate\Http\Request;
 */
 
 Route::post('change-notification', 'ApiController@changeNotification');
+Route::post('change-notification-service', 'ApiController@changeNotificationService');
 Route::post('request-address', 'ApiController@requestAddress');
 Route::get('user/{id}', 'ApiController@userById');
 Route::post('auth/user', 'ApiController@auth');
+
+Route::get('news', 'ApiController@news');
+Route::get('notifications', 'ApiController@notifications');

@@ -16,9 +16,9 @@
                href="{{route('notification')}}">
                 Obaveštenja
             </a>
-            <a class="nav-link {{url()->current()  == route('news') ? 'active' : ''}}" href="{{route('news')}}">
-                Vesti
-            </a>
+            {{--<a class="nav-link {{url()->current()  == route('news') ? 'active' : ''}}" href="{{route('news')}}">--}}
+                {{--Vesti--}}
+            {{--</a>--}}
             <a class="nav-link {{url()->current()  == route('change-location') ? 'active' : ''}}" href="{{route('change-location')}}">
                 eForma
             </a>
