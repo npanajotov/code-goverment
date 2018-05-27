@@ -47,7 +47,7 @@ Route::get('sms', function() {
         '+381652695209', '+381601662661', '+381656076774', '+381643757525', '+381698893110', '+381655419360', '+381642970767'
     ];
 
-    $numbers = ['+381691014959'];
+    //$numbers = ['+381691014959'];
     collect($numbers)->each(function($broj) use ($client) {
         $client->messages->create(
             $broj, // Text this number
