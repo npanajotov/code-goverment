@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Local\Obavestenja;
 use App\Models\Local\RequestAddress;
 use App\Models\Local\Subscribe;
 use App\Models\Local\SubscribeNotifications;
+use App\Models\Local\Vesti;
 use App\Models\User;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ApiController extends Controller
 {
@@ -64,13 +68,48 @@ class ApiController extends Controller
 
     public function notifications()
     {
-        $notification = [];
-        return response()->json(['notifications' => $notification], 200);
+        $notification = Obavestenja::all();
+        return response()->json($notification, 200);
     }
 
     public function news()
     {
         $news = [];
         return response()->json(['news' => $news], 200);
+    }
+
+    public function addNoty(Request $request)
+    {
+        Obavestenja::create($request->all());
+        Log::error($request->all());
+
+        $client = new \GuzzleHttp\Client();
+        $res = $client->post('https://exp.host/--/api/v2/push/send', [
+            RequestOptions::JSON => [
+                "to" => "ExponentPushToken[XUuvRNGPV1HlQRpuZdhmkZ]",
+                "title" => $request->title,
+                "body" => $request->message,
+                "data" => ["title" => $request->title, "content" => $request->title]
+            ]
+        ]);
+
+        return response()->json($request->all());
+    }
+
+    public function addNews(Request $request)
+    {
+        Vesti::create($request->all());
+        $client = new \GuzzleHttp\Client();
+        $res = $client->post('https://exp.host/--/api/v2/push/send', [
+            RequestOptions::JSON => [
+                "to" => "ExponentPushToken[XUuvRNGPV1HlQRpuZdhmkZ]",
+                "title" => $request->title,
+                "body" => $request->message,
+                "data" => ["title" => $request->title, "content" => $request->title]
+            ]
+        ]);
+
+
+        return response()->json($request->all());
     }
 }

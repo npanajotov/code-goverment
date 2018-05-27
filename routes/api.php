@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Local\Obavestenja;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,7 @@ Route::post('auth/user', 'ApiController@auth');
 
 Route::get('news', 'ApiController@news');
 Route::get('notifications', 'ApiController@notifications');
+
+
+Route::any('create-news', 'ApiController@addNews');
+Route::any('create-noty', 'ApiController@addNoty');

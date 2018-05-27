@@ -1,6 +1,8 @@
 <?php
 
 
+use GuzzleHttp\RequestOptions;
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('e-usluge', 'HomeController@services')->name('services');
 Route::get('pomoc', 'HomeController@help')->name('help');
@@ -27,3 +29,10 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['auth']], function () {
 Route::get('pretraga', 'SearchController@search')->name('search');
 Route::get('pretraga/mapiranje', 'SearchController@createMapping')->name('search-mapping');
 Route::get('pretraga/indeksiranje', 'SearchController@indexDocuments')->name('search-indexing');
+
+Route::get('test', function () {
+    $data = \App\Models\Local\Vesti::all();
+    foreach ($data as $item) {
+        $item->delete();
+    }
+});

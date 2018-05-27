@@ -21,7 +21,21 @@
                 @include('layout.user-nav')
             </div>
             <div class="col-md-9">
-                asdf
+                <div class="news">
+                    <div class="title">
+                        Obavestenja
+                    </div>
+                    <div class="news-list">
+                        @foreach($noty as $item)
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <h5 class="card-title">{{$item->title}}</h5>
+                                    <p class="card-text">{{$item->message}}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>

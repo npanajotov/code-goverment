@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Local\Obavestenja;
+use App\Models\Local\Vesti;
+
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('pages.dashboard');
+        return view('pages.dashboard', [
+            'news' => Vesti::all(),
+            'noty' => Obavestenja::all()
+        ]);
     }
 
     public function whoIam()

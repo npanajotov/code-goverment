@@ -33,6 +33,7 @@ class SearchController extends Controller
             ],
         ];
         $response = $this->client->search($params);
+        dd($response['hits']['hits']);
         return response()->json($response['hits']['hits']);
     }
 
@@ -57,24 +58,27 @@ class SearchController extends Controller
 
     public function indexDocuments()
     {
-        $file = '/tmp/ime.txt';
-        $title = 'Ime fajla';
-        $params['body'][] = [
-            'index' => [
-                '_index' => 'ingest_index',
-                '_type' => 'attachment',
-                '_id' => 'demo',
-                'pipeline' => 'attachment',
-            ]
-        ];
 
-        $data = base64_encode(file_get_contents($file));
+        $files = ['Obrazac-za-sporazumni-razvod-braka.pdf', 'Захтев-за-основне-подстицаје-у-биљној-производњи.pdf', 'Захтев-за-подстицајна-средства-за-тов-јунади.pdf', 'Захтев-за-регресирање-ђубрива.pdf', 'Test.txt', 'Obrazac-za-sporazumni-razvod-braka.docx'];
+        $params = [];
+        foreach ($files as $i => $file):
+            $file = public_path('files/' . $file);
+            $params['body'][] = [
+                'index' => [
+                    '_index' => 'ingest_index',
+                    '_type' => 'attachment',
+                    '_id' => 'demo',
+                    'pipeline' => 'attachment',
+                ]
+            ];
 
-        $params['body'][] = [
-            'title' => $title,
-            'textField' => $data,
-            'file_path' =>$file,
-        ];
+            $data = base64_encode(file_get_contents($file));
+            $params['body'][] = [
+                'title' => $files[$i],
+                'textField' => $data,
+                'file_path' => $file,
+            ];
+        endforeach;
         $this->client->bulk($params);
     }
 }

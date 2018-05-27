@@ -175,3 +175,29 @@ footer .social-links ul li:last-child {
   margin-right: 0;
 }
 
+.section1 .list {
+  list-style: none;
+  margin-top: 56px;
+}
+
+.section1 p .strong-text {
+  color: #1A4073;
+}
+
+.section1 .body-text {
+  color: #939393;
+  padding: 5px 0;
+}
+
+.section1 .image_width {
+  max-height: 80px;
+}
+
+.section1 .list img {
+  margin: 20px 0;
+}
+
+.section1 ul {
+  padding-left: 20px;
+}
+

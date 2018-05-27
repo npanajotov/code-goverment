@@ -3,8 +3,8 @@
     <div class="card-body text-secondary">
         <div class="nav flex-column nav-pills">
             <a class="nav-link {{url()->current() == route('dashboard') ? 'active' : ''}}"
-            href="{{route('dashboard')}}">
-            eUprava
+               href="{{route('dashboard')}}">
+                eUprava
             </a>
             <a class="nav-link {{url()->current()  == route('whoIam') ? 'active' : ''}}" href="{{route('whoIam')}}">
                 Ko sam ja?
@@ -17,13 +17,14 @@
                 Obaveštenja
             </a>
             {{--<a class="nav-link {{url()->current()  == route('news') ? 'active' : ''}}" href="{{route('news')}}">--}}
-                {{--Vesti--}}
+            {{--Vesti--}}
             {{--</a>--}}
-            <a class="nav-link {{url()->current()  == route('change-location') ? 'active' : ''}}" href="{{route('change-location')}}">
+            <a class="nav-link {{url()->current()  == route('change-location') ? 'active' : ''}}"
+               href="{{route('change-location')}}">
                 eForma
             </a>
             {{--<a class="nav-link {{url()->current()  == route('calendar') ? 'active' : ''}}" href="{{route('calendar')}}">--}}
-                {{--Kalendar--}}
+            {{--Kalendar--}}
             {{--</a>--}}
             <a class="nav-link" href="{{route('logout')}}">Odjava</a>
         </div>

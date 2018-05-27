@@ -39,8 +39,8 @@
 </nav>
 <div class="container search-box-container">
     <div class="search-box">
-        <form class="form-inline" id="search-form">
-            <input class="form-control mr-sm-2" type="search" placeholder="Unesite pojam..."
+        <form class="form-inline" id="search-form" action="{{route('search')}}">
+            <input class="form-control mr-sm-2" type="search" name="q" placeholder="Unesite pojam..."
                    aria-label="Search">
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i>
                 Pretraga
