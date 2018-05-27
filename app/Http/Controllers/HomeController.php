@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Local\Subscribe;
+use App\Models\Local\SubscribeNotifications;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class HomeController extends Controller
 //    {
 //        $users = User::all();
 //        foreach ($users as $user):
-//            $subscribe = new Subscribe();
+//            $subscribe = new SubscribeNotifications();
 //            $subscribe->user_id = $user->id;
 //            $subscribe->save();
 //        endforeach;

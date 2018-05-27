@@ -65,7 +65,10 @@
 
                             <div class="card-body text-secondary">
                                 <div class="pl-3 pb-3">
-                                    <service-notification :selected_eps="1" :selected_vodovod="1" :selected_telekom="1" :user_id="{{Auth::user()->id}}"></service-notification>
+                                    <service-notification
+                                        :selected_eps="{{Auth::user()->subscribedNotification->selected_eps}}"
+                                        :selected_vodovod="{{Auth::user()->subscribedNotification->selected_vodovod}}"
+                                        :selected_telekom="{{Auth::user()->subscribedNotification->selected_telekom}}" :user_id="{{Auth::user()->id}}"></service-notification>
                                 </div>
                             </div>
                         </div>
