@@ -10,6 +10,7 @@ Route::post('search', 'HomeController@search')->name('search');
 
 Route::get('auth', 'AuthController@index');
 Route::post('auth', 'AuthController@login')->name('login');
+Route::post('register', 'AuthController@register')->name('register');
 Route::get('logout', 'AuthController@logout')->name('logout');
 
 Route::group(['prefix' => '/dashboard', 'middleware' => ['auth']], function () {

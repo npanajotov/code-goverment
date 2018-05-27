@@ -27,6 +27,17 @@ class AuthController extends Controller
         return back()->withErrors('Korisnicko koje ste uneli ne postoji.')->withInput();
     }
 
+    public function register(Request $request)
+    {
+        $user = new User();
+        $user->KorisnickoIme = $request->username;
+        $user->JMBG = $request->JMBG;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        Auth::attempt(['KorisnickoIme' => $request->username, 'password' => $request->password], true);
+        return redirect()->route('dashboard');
+    }
+
     public function logout()
     {
         Auth::logout();

@@ -1,11 +1,26 @@
 @extends('master')
 @section('content')
+    <div class="bg-primary">
+        <div class="container">
+            <div class="row nav-content">
+                <div class="col-sm-3">
+                    <img src="/img/obavestenja.png" alt="" class="img-responsive image_header" style="margin-top:20px;">
+                </div>
+                <div class="col-sm-8 nav_header_container">
+                    <div class="nav_header">
+                        <h1 class="display-4">OBAVEŠTENJA</h1>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row pt-3">
-            <div class="col-3">
+            <div class="col-md-3">
                 @include('layout.user-nav')
             </div>
-            <div class="col-9">
+            <div class="col-md-9">
                 <div class="card border-primary mb-3">
                     <div class="card-body text-primary">
                         <div class="pl-3 pr-3 pb-3">
@@ -50,15 +65,7 @@
 
                             <div class="card-body text-secondary">
                                 <div class="pl-3 pb-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="smsNoty">
-                                        <label class="form-check-label" for="smsNoty">
-                                            Elektrodistribucija
-                                            <small><a href="tel:{{Auth::user()->Telefon}}">{{Auth::user()->Telefon}}</a>
-                                            </small>
-                                        </label>
-                                    </div>
-
+                                    <service-notification :selected_eps="1" :selected_vodovod="1" :selected_telekom="1" :user_id="{{Auth::user()->id}}"></service-notification>
                                 </div>
                             </div>
                         </div>

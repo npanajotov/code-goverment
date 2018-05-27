@@ -13908,6 +13908,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_axios___default.a, __WEBPACK_IMPORTED_MO
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('notification', __webpack_require__(40));
 Vue.component('newaddress', __webpack_require__(49));
+Vue.component('service-notification', __webpack_require__(52));
 
 var app = new Vue({
   el: '#app'
@@ -47959,6 +47960,270 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-77fee6eb", module.exports)
+  }
+}
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(41)
+/* script */
+var __vue_script__ = __webpack_require__(53)
+/* template */
+var __vue_template__ = __webpack_require__(54)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\ServiceNotifcation.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-725e9238", Component.options)
+  } else {
+    hotAPI.reload("data-v-725e9238", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['selected_telekom', 'selected_eps', 'selected_vodovod', 'user_id'],
+    data: function data() {
+        return {
+            eps: false,
+            telekom: false,
+            vodovod: false
+        };
+    },
+    created: function created() {
+        if (this.selected_telekom) this.telekom = true;
+        if (this.selected_eps) this.eps = true;
+        if (this.selected_vodovod) this.vodovod = true;
+    },
+    methods: {
+        send: function send() {
+            var data = {
+                selected_telekom: this.telekom,
+                selected_eps: this.eps,
+                selected_vodovod: this.vodovod,
+                user_id: this.user_id
+            };
+
+            this.axios.post('/api/change-notification-service', data).then(function () {}).catch(function () {
+                console.log('error');
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "form-check" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.eps,
+            expression: "eps"
+          }
+        ],
+        staticClass: "form-check-input",
+        attrs: { type: "checkbox", value: "", id: "eps" },
+        domProps: {
+          checked: Array.isArray(_vm.eps) ? _vm._i(_vm.eps, "") > -1 : _vm.eps
+        },
+        on: {
+          change: [
+            function($event) {
+              var $$a = _vm.eps,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = "",
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 && (_vm.eps = $$a.concat([$$v]))
+                } else {
+                  $$i > -1 &&
+                    (_vm.eps = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                }
+              } else {
+                _vm.eps = $$c
+              }
+            },
+            _vm.send
+          ]
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { staticClass: "form-check-label", attrs: { for: "eps" } }, [
+        _vm._v("\n            Elektrodistribucija\n        ")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-check" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.vodovod,
+            expression: "vodovod"
+          }
+        ],
+        staticClass: "form-check-input",
+        attrs: { type: "checkbox", value: "", id: "vod" },
+        domProps: {
+          checked: Array.isArray(_vm.vodovod)
+            ? _vm._i(_vm.vodovod, "") > -1
+            : _vm.vodovod
+        },
+        on: {
+          change: [
+            function($event) {
+              var $$a = _vm.vodovod,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = "",
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 && (_vm.vodovod = $$a.concat([$$v]))
+                } else {
+                  $$i > -1 &&
+                    (_vm.vodovod = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                }
+              } else {
+                _vm.vodovod = $$c
+              }
+            },
+            _vm.send
+          ]
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { staticClass: "form-check-label", attrs: { for: "vod" } }, [
+        _vm._v("\n            Vodovod i kanalizacija\n        ")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-check" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.telekom,
+            expression: "telekom"
+          }
+        ],
+        staticClass: "form-check-input",
+        attrs: { type: "checkbox", value: "", id: "tele" },
+        domProps: {
+          checked: Array.isArray(_vm.telekom)
+            ? _vm._i(_vm.telekom, "") > -1
+            : _vm.telekom
+        },
+        on: {
+          change: [
+            function($event) {
+              var $$a = _vm.telekom,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = "",
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 && (_vm.telekom = $$a.concat([$$v]))
+                } else {
+                  $$i > -1 &&
+                    (_vm.telekom = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                }
+              } else {
+                _vm.telekom = $$c
+              }
+            },
+            _vm.send
+          ]
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { staticClass: "form-check-label", attrs: { for: "tele" } }, [
+        _vm._v(
+          "\n            Telekom (Fiksni telefon, Televizija, Internet)\n        "
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-725e9238", module.exports)
   }
 }
 
