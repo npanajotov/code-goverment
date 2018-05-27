@@ -77,7 +77,7 @@
                     <h3 class="lead">Kako da koristite portal eUprava?</h3>
                 </div>
                 <div class="col-md-4">
-
+                    <h1>1</h1>
                     <h4 class="lead"><strong>Kreiranje profila</strong></h4>
                     <ul style="color:white; padding-left:15px">
                         <li>Nakon unosa potrebnih podataka na Vašu email adresu stiže potvrdni email</li>
@@ -85,7 +85,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-
+                    <h1>2</h1>
                     <h4 class="lead"><strong>Upravljanje platformom</strong></h4>
                     <ul style="color:white; padding-left:15px">
                         <li>Na svom nalogu možete da vidite vesti, obaveštenja, kalendar, da zakažete usluge</li>
@@ -94,11 +94,11 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-
+                    <h1>3</h1>
                     <h4 class="lead"><strong>Budite obavešteni</strong></h4>
                     <ul style="color:white; padding-left:15px">
                         <li>Na naslovnoj strani profila imaćete najvažnija obaveštenja</li>
-                        <li>Odaberite način na koji želite da primate obaveštenja od eUprave </li>
+                        <li>Odaberite način na koji želite da primate obaveštenja od eUprave</li>
                     </ul>
                 </div>
             </div>

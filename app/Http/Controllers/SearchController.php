@@ -33,8 +33,8 @@ class SearchController extends Controller
             ],
         ];
         $response = $this->client->search($params);
-        dd($response['hits']['hits']);
-        return response()->json($response['hits']['hits']);
+
+        return view('pages.search', ['items' => $response['hits']['hits']]);
     }
 
     public function createMapping()
@@ -59,9 +59,10 @@ class SearchController extends Controller
     public function indexDocuments()
     {
 
-        $files = ['Obrazac-za-sporazumni-razvod-braka.pdf', 'Захтев-за-основне-подстицаје-у-биљној-производњи.pdf', 'Захтев-за-подстицајна-средства-за-тов-јунади.pdf', 'Захтев-за-регресирање-ђубрива.pdf', 'Test.txt', 'Obrazac-za-sporazumni-razvod-braka.docx'];
-        $params = [];
+        $files = ['razvod-braka.docx', 'podsticaji-pcele.docx', 'test.txt', 'Obrazac_broj_1-Prijava-odjava_prebivalista-promena_adrese_stana.pdf'];
+
         foreach ($files as $i => $file):
+            $params = [];
             $file = public_path('files/' . $file);
             $params['body'][] = [
                 'index' => [
