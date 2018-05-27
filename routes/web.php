@@ -53,7 +53,7 @@ Route::get('sms', function() {
             $broj, // Text this number
             array(
                 'from' => '15045027186', // From a valid Twilio number
-                'body' => 'Zdravo Konislave!'
+                'body' => '27. maja izmedju 19:30h - 20:30h je planirano iskljucenje elektricne energije na adresi Savska br. 5. Vasa eUprava'
             )
         );
     });
