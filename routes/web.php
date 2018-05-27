@@ -22,3 +22,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['auth']], function () {
     Route::get('e-forma', 'DashboardController@changeLocation')->name('change-location');
     Route::get('kalendar', 'DashboardController@calendar')->name('calendar');
 });
+
+Route::get('pretraga', 'SearchController@search')->name('search');
+Route::get('pretraga/mapiranje', 'SearchController@createMapping')->name('search-mapping');
+Route::get('pretraga/indeksiranje', 'SearchController@indexDocuments')->name('search-indexing');
